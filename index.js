@@ -7,7 +7,6 @@ function changeColor(color){
 
 function randomColor(){
     document.documentElement.style.setProperty('--newColor',colors[Math.floor(Math.random()*100%colors.length)])
-    // document.body.style.backgroundColor = colors[Math.floor(Math.random()*100%colors.length)];
 }
 // setInterval(randomColor,5000);
 async function updateQuote() {
@@ -35,6 +34,6 @@ async function updateQuote() {
 }
 onload = () =>{
     updateQuote();
-    document.getElementById('next-quote').addEventListener("click", updateQuote );
+    document.getElementById('new-quote').addEventListener("click", updateQuote );
 }
 // setInterval(updateQuote,10000);
