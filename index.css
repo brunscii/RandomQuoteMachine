@@ -34,40 +34,33 @@ body{
     width: fit-content;
     padding: 1.5rem;
     background-color: var(--quote-background);
-
+    display: flexbox;
+    box-sizing:content-box;
 }
 #quote{
     padding-bottom: 1rem;
+    
 }
 
-.author-bar{
+.author{
     font-size: medium;
     margin: 5%;
     padding-bottom: .5rem;
 }
 
-#button-block{
-    width: 100%;
-    font-style: normal;
-    /* margin-top: 10%; */
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content:space-around;
-    font-size: large;
-    transition: all 0.5s ease;
-}
-
 #tweet-quote{
     transition: all 0.5s ease;
-    text-decoration: none;
+    text-decoration: inherit;
     color: var(--quote-background);
     background-color: var(--newColor);
-    display: flex;
     align-items: center;
     font-weight: bold;
+    height:fit-content;
+    padding: 1rem;
 }
 
-#next-quote{
+#new-quote{
+    padding: 1rem;
     transition: all 0.5s ease;
     font-size: inherit;
     font-family: inherit;
@@ -76,6 +69,7 @@ body{
     height: 5vh;
     color: var(--quote-background);
     background-color: var(--newColor);
+    height:fit-content;
 }
 
 .rounded{

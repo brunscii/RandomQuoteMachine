@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <script src="index.js"></script>
+    <script src="jquery-3.6.1.min.js"></script>
     <title>Random Qoute Machine</title>
     
 </head>
@@ -13,15 +13,49 @@
     <div id="wrapper">
         
         <div class="rounded" id="quote-box">
-            <div>
+            <div id="text">
                 <p id="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque impedit distinctio atque harum quas nihil ut maxime laboriosam ex. Modi ducimus nulla deleniti impedit laborum ut quasi obcaecati provident cumque.
                 </p>
             </div>
-            <div class="author-bar"><span>Author: </span><span id="author"></span></div>
-            <div class="bottom" id="button-block">
-                <button class="rounded" id="next-quote">Next Quote</button>
-                <a href="twitter.com/intent/tweet" class="rounded" id="tweet-quote">Tweet quote</a>
-            </div>
+            <div class="author" id="author"><span>Author: </span><span id="author-name"></span></div>
+            
+                <button class="rounded" id="new-quote">Next Quote</button>
+                <script>
+                    // change the value of the newColor property
+                    function changeColor(color){
+                        document.documentElement.style.setProperty("--newColor", color);
+                        
+                    }
+
+                    // picks a random color from the list and calls the changeColor with the new color
+                    function randomColor(){
+                        const colors = ['#5465DA','#DB72A0','#5CDBD9','#DBB946','#DA6E37','#84C974'];
+                        changeColor(colors[Math.floor(Math.random()*100%colors.length)]);
+                    }
+
+                    // grab a new quote from the quoteable api and set the quote and author conetents
+                    const new_quote = function(){
+                        $.get("https://api.quotable.io/random", function(data,status){
+                            $("#quote").text(data.content);
+                            $("#author").text(data.author);
+                            randomColor();
+                        });
+                    };
+
+                    // grab a quote onload
+                    $(document).ready(function(){
+                        new_quote();
+                    });
+
+                    // button click for new quote
+                    $("#new-quote").click(function(){
+                        new_quote();  
+                    });
+                    
+
+                </script>
+                <a href="https://twitter.com/intent/tweet" class="rounded" id="tweet-quote" target="_blank">Tweet quote</a>
+            
             
         </div>
     </div>
