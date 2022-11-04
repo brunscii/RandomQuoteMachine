@@ -20,6 +20,8 @@
             <div class="author" id="author"><span>Author: </span><span id="author-name"></span></div>
             
                 <button class="rounded" id="new-quote">Next Quote</button>
+                <a href="https://twitter.com/intent/tweet" class="rounded" id="tweet-quote" target="_blank">Tweet quote</a>
+
                 <script>
                     // change the value of the newColor property
                     function changeColor(color){
@@ -39,7 +41,10 @@
                             $("#quote").text(data.content);
                             $("#author").text(data.author);
                             randomColor();
+                            let text = 'https://twitter.com/intent/tweet?text='  + data.content;
+                            $('#tweet-quote').attr('href',text)
                         });
+
                     };
 
                     // grab a quote onload
@@ -54,7 +59,6 @@
                     
 
                 </script>
-                <a href="https://twitter.com/intent/tweet" class="rounded" id="tweet-quote" target="_blank">Tweet quote</a>
             
             
         </div>
